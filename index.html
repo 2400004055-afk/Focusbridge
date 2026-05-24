@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocusBridge v3.4 - Siêu Trí Tuệ AI & Giám Thị Thép</title>
+    <title>FocusBridge v3.5 - Siêu Trí Tuệ AI & Giám Thị Thép</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -60,7 +60,7 @@
                 </div>
                 <div>
                     <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
-                        FocusBridge <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/30">v3.4 Kỷ Luật Thép</span>
+                        FocusBridge <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/30">v3.5 Final</span>
                     </h1>
                     <p class="text-[10px] text-slate-400">Đếm ngược tự động • Giám thị AI siêu khắt khe</p>
                 </div>
@@ -156,7 +156,7 @@
 
                 <div class="p-3 bg-red-500/10 border border-red-500/20 rounded-xl mb-3">
                     <p class="text-[10px] text-red-400 font-semibold leading-relaxed">
-                        ⚠️ <span class="font-bold">LUẬT THÉP v3.4:</span> AI sẽ quét ảnh bằng thuật toán nghiêm ngặt nhất. Tải ảnh rác (selfie, cốc nước, không đúng môn học) sẽ bị từ chối 100%. Không có ngoại lệ!
+                        ⚠️ <span class="font-bold">LUẬT THÉP v3.5:</span> AI sẽ quét ảnh bằng thuật toán nghiêm ngặt nhất. Tải ảnh rác (selfie, cốc nước, không đúng môn học) sẽ bị từ chối 100%. Không có ngoại lệ!
                     </p>
                 </div>
 
@@ -188,7 +188,7 @@
                             <div class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-slate-900 rounded-full"></div>
                         </div>
                         <div>
-                            <h2 class="text-sm font-bold text-white leading-tight">FocusAI SuperMind 3.4</h2>
+                            <h2 class="text-sm font-bold text-white leading-tight">FocusAI SuperMind 3.5</h2>
                             <p class="text-[9px] text-violet-300">Biết tuốt mọi môn học • Phân tích & Giải Toán siêu đẳng</p>
                         </div>
                     </div>
@@ -376,7 +376,7 @@
         // CẤU HÌNH API KEY (QUAN TRỌNG NHẤT)
         // ----------------------------------------------------
         // 🛑 BƯỚC QUAN TRỌNG NHẤT: DÁN API KEY CỦA BẠN VÀO BÊN DƯỚI 🛑
-        const apiKey = "AIzaSyCG2CjvpHYstpkvK6Dime7G_bhCxB2AypM"; 
+        const apiKey = "AIzaSyDwpNITF-O5QcuTlZ9WfzYXSeukGFLupKs"; 
         
         // --- CHAT AI API ENDPOINT ---
         const AI_URL_CHAT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
@@ -733,8 +733,7 @@
                 window.setAiPreview(State.photo); closeCameraModal(); showToast("Đã đưa ảnh chụp vào AI thành công!", "success"); return;
             }
 
-            // Kiểm tra xem đã có API KEY chưa
-            if (!apiKey || apiKey.trim() === "" || apiKey === "DÁN_API_KEY_CỦA_BẠN_VÀO_ĐÂY") {
+            if (!apiKey || apiKey.trim() === "" || apiKey === "YOUR_API_KEY_HERE" || apiKey.includes("DÁN_API_KEY")) {
                 showToast("Lỗi: Bạn chưa cung cấp API Key của Google Gemini trong mã nguồn!", "error");
                 return;
             }
@@ -748,7 +747,7 @@
                 lucide.createIcons(); 
             }
 
-            // PROMPT NÂNG CẤP V3.4 - GIÁM THỊ KỶ LUẬT TUYỆT ĐỐI
+            // PROMPT NÂNG CẤP V3.5 - GIÁM THỊ KỶ LUẬT TUYỆT ĐỐI
             const aiStrictCheckPrompt = `
 BẠN LÀ GIÁM KHẢO KIỂM DUYỆT KỶ LUẬT THÉP.
 Mục tiêu học tập mà người dùng đã cam kết là: "${t.t}".
@@ -936,7 +935,7 @@ Hãy khắt khe nhất có thể! Trả về JSON duy nhất:
         }
 
         async function fetchAIChat(prompt, inlineImages = [], useHistory = true) {
-            if (!apiKey || apiKey.trim() === "" || apiKey === "DÁN_API_KEY_CỦA_BẠN_VÀO_ĐÂY") {
+            if (!apiKey || apiKey.trim() === "" || apiKey === "YOUR_API_KEY_HERE" || apiKey.includes("DÁN_API_KEY")) {
                 return "⚠️ Lỗi: Bạn chưa cấu hình API Key cho FocusAI. Vui lòng mở mã nguồn và điền API Key của bạn vào để kích hoạt Siêu Trợ Lý nhé!";
             }
 
@@ -956,9 +955,9 @@ Hãy khắt khe nhất có thể! Trả về JSON duy nhất:
                 contentsPayload = State.aiHistory;
             } else { contentsPayload = [{ role: "user", parts: currentParts }]; }
 
-            // PROMPT NÂNG CẤP V3.4 - SIÊU TRỢ LÝ GIẢI QUYẾT MỌI VẤN ĐỀ
+            // PROMPT NÂNG CẤP V3.5 - SIÊU TRỢ LÝ GIẢI QUYẾT MỌI VẤN ĐỀ
             const systemPrompt = `
-Bạn là FocusAI phiên bản v3.4 SuperMind - Hệ thống Trí Tuệ Nhân Tạo bách khoa toàn thư tích hợp đa phương thức siêu việt.
+Bạn là FocusAI phiên bản v3.5 SuperMind - Hệ thống Trí Tuệ Nhân Tạo bách khoa toàn thư tích hợp đa phương thức siêu việt.
 Nhiệm vụ tối cao của bạn là:
 1. Giải quyết XUẤT SẮC mọi bài tập: Toán học (Đại số, Hình học, Vi tích phân), Vật lý, Hóa học, Sinh học, Ngữ Văn, Tiếng Anh, Lập trình (Python, C++, Java, JS...).
 2. Trình bày lời giải từng bước một (Step-by-step): Không bao giờ chỉ đưa ra đáp án cuối cùng. Phải giải thích tư duy, định lý, công thức áp dụng từ cơ bản đến nâng cao.
